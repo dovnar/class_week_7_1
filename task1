@@ -1,0 +1,39 @@
+#include <locale.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int t, sumT = 0, min = 50, max = -50, iasDey = 0, sunDey = 0, week = 7, dey = 1;
+
+	for (dey = 1; dey <= week; dey++)
+	{
+		cout << "введите температуру " << dey << "дня = ";
+		cin >> t;
+
+		if (t >= 18)
+		{
+			sunDey++;
+		}
+		else
+		{
+			iasDey++;
+		}
+		if (t >= max)
+		{
+			max = t;
+		}
+		else if (t <= min)
+		{
+			min = t;
+		}
+		sumT += t;
+	}
+	cout << "средняя температура за неделю = " << sumT / week << "\n"
+		"минимальная температура за неделю = " << min << "\n"
+		"максимальная температура за неделю = " << max << "\n"
+		"холодных дней = " << iasDey << "\n"
+		"теплых дней = " << sunDey << "\n";
+}
