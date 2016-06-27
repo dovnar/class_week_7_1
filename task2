@@ -1,0 +1,29 @@
+#include <locale.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int randMax, cycle, total, number, count = 0;
+
+	cout << "введите верхнюю границу поиска полиндромного числа = ";
+	cin >> randMax;
+	cout << "полиндромы от 10 до " << randMax << " = ";
+	for (cycle = 10; cycle <= randMax; cycle++)
+	{
+		for (number = cycle, total = 0; number > 0; number /= 10)
+		{
+			total *= 10;
+			total += number % 10;
+		}
+		if (total == cycle)
+		{
+			count++;
+			cout << cycle << ", ";
+		}
+	}
+	cout << "количество = " << count;
+	return 0;
+}
